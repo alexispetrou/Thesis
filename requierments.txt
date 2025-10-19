@@ -1,0 +1,13 @@
+tensorflow>=2.14
+keras
+numpy
+pandas
+matplotlib
+scikit-learn
+opencv-python
+albumentations
+tqdm
+seaborn
+torch
+torchvision
+nibabel
