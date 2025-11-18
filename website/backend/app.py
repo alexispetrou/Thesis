@@ -22,7 +22,7 @@ print("🚀 Loading model...")
 model = models.resnet18(pretrained=False)
 num_ftrs = model.fc.in_features
 model.fc = nn.Linear(num_ftrs, len(class_names))
-model.load_state_dict(torch.load("brisc2025_cnn_final.pth", map_location=device))
+model.load_state_dict(torch.load("best_brisc_pytorch.pth", map_location=device))
 model.to(device)
 model.eval()
 print("✅ Model loaded successfully!")
