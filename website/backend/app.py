@@ -22,7 +22,11 @@ print("🚀 Loading model...")
 model = models.resnet18(pretrained=False)
 num_ftrs = model.fc.in_features
 model.fc = nn.Linear(num_ftrs, len(class_names))
-model.load_state_dict(torch.load("best_brisc_pytorch.pth", map_location=device))
+# Φορτώνουμε πρώτα όλο το checkpoint
+checkpoint = torch.load("best_brisc_pytorch.pth", map_location=device)
+
+# Και μετά φορτώνουμε στο μοντέλο ΜΟΝΟ το κομμάτι που έχει τα βάρη (model_state_dict)
+model.load_state_dict(checkpoint['model_state_dict'])
 model.to(device)
 model.eval()
 print("✅ Model loaded successfully!")
